@@ -19,8 +19,6 @@ class VampireKing(name: String) : Vampire(name) {
         if (chance > 3) {
             println("Dracula dodges. (Random num = $chance)")
             return true
-        } else {
-            println("(Random num = $chance)")
         }
         return false
     }
