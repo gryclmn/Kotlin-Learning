@@ -22,9 +22,29 @@ class Player(val name: String, var level: Int = 1, var lives: Int = 3, var score
             """
     }
 
+    fun getLoot(item: Loot) {
+        inventory.add(item)
+    }
+
+    fun dropLoot(item: Loot): Boolean {
+        return if (inventory.contains(item)) {
+            inventory.remove(item)
+            true
+        } else {
+            false
+        }
+    }
+
+    fun dropLoot(name: String): Boolean {
+        println("$name will be dropped")
+        return inventory.removeIf { it.name == name}
+    }
+
     fun showInventory() {
         println("$name's Inventory")
-        println(inventory.get(0))
+        for (item in inventory) {
+            println(item)
+        }
         println("=======================")
     }
 }

@@ -1,13 +1,26 @@
 fun main(args: Array<String>) {
-    val gary = Player("Gary")
-    val jen = Player("Jen", level = 10)
-    val lily = Player("Lily",level = 4, lives = 8)
-    val gizmo = Player("Gizmo", level = 2, lives = 5, score = 1000)
 
-    val sword = Weapon("Master Sword", 50)
-    val redPotion = Loot("Red Potion", LootType.POTION, 7.50)
-    gary.inventory.add(redPotion)
+    val uglyTroll = Troll("Ugly Troll")
+    println(uglyTroll)
+    uglyTroll.takeDamage(30)
+    println(uglyTroll)
 
-    gary.showInventory()
+    val vlad = Vampire("Vlad")
+    println(vlad)
+    vlad.takeDamage(8)
+    println(vlad)
+
+    val dracula = VampireKing("Dracula")
+    println(dracula)
+
+    while(dracula.lives > 0) {
+        if (dracula.dodges()) continue
+        if (dracula.runAway()) {
+            println("Dracula ran away")
+            break
+        }
+    }
+
+    println(dracula)
 
 }
